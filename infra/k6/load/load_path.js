@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
-import { 메인_페이지_로딩, 페이지_로딩_확인 } from "./smoke_main.js";
+import { 메인_페이지_로딩, 페이지_로딩_확인 } from "./load_main.js";
 
 export let options = {
     stages: [
