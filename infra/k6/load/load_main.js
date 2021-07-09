@@ -30,6 +30,6 @@ export function 메인_페이지_로딩() {
 
 export function 페이지_로딩_확인(로딩된_페이지) {
     check(로딩된_페이지, {
-        'Lending Main page': (response) => response.status === 200
+        'Main Page Access': (response) => response.status === 200
     });
 }

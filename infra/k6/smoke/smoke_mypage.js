@@ -46,7 +46,7 @@ export function 로그인_요청() {
 
 export function 로그인_확인(발급된_토큰) {
     check(발급된_토큰, {
-        'Login Successfully': (resp) => resp.json('accessToken') !== '',
+        'Login Success': (resp) => resp.json('accessToken') !== '',
     });
 };
 

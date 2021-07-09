@@ -1,23 +1,20 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
-import { 메인_페이지_로딩, 페이지_로딩_확인 } from "./stress_main.js";
 
 export let options = {
     stages: [
-        { duration: '10s', target: 100 },
+        { duration: '20s', target: 10 },
         { duration: '20s', target: 100 },
-        { duration: '10s', target: 200 },
         { duration: '20s', target: 200 },
-        { duration: '10s', target: 400 },
-        { duration: '20s', target: 400 },
-        { duration: '10s', target: 600 },
-        { duration: '20s', target: 600 },
-        { duration: '10s', target: 800 },
+        { duration: '20s', target: 300 },
+        { duration: '20s', target: 500 },
         { duration: '20s', target: 800 },
-        { duration: '10s', target: 0 },
+        { duration: '20s', target: 1000 },
+        { duration: '40s', target: 0 },
     ],
+
     thresholds: {
-        http_req_duration: ['p(99)<500'],
+        http_req_duration: ['p(99)<50'],
     },
 };
 
@@ -26,9 +23,6 @@ const 건대입구_ID = 130;
 const 잠실_ID = 100;
 
 export default function () {
-
-    let 로딩된_페이지 = 메인_페이지_로딩();
-    페이지_로딩_확인(로딩된_페이지);
 
     let 경로_조회_결과 = 경로_조회_요청(건대입구_ID, 잠실_ID);
     let 예상_출발역 = '건대입구';
